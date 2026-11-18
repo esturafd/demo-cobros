@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.hasSize;
 import com.demo.cobros.auditoria.infrastructure.persistence.AuditoriaPanacheRepository;
 import com.demo.cobros.clientes.infrastructure.persistence.ClientePanacheRepository;
 import com.demo.cobros.cobros.infrastructure.persistence.CobroPanacheRepository;
+import com.demo.cobros.shared.ApiTestBase;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import jakarta.inject.Inject;
@@ -17,7 +18,7 @@ import org.junit.jupiter.api.Test;
 
 /** Pruebas de integración de la consulta de auditoría. */
 @QuarkusTest
-class AuditoriaResourceIT {
+class AuditoriaResourceIT extends ApiTestBase {
 
     @Inject ClientePanacheRepository clienteRepository;
     @Inject CobroPanacheRepository cobroRepository;

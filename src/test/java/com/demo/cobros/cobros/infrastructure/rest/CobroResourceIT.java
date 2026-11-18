@@ -10,6 +10,7 @@ import com.demo.cobros.auditoria.infrastructure.persistence.AuditoriaPanacheRepo
 import com.demo.cobros.clientes.domain.model.Cliente;
 import com.demo.cobros.clientes.infrastructure.persistence.ClientePanacheRepository;
 import com.demo.cobros.cobros.infrastructure.persistence.CobroPanacheRepository;
+import com.demo.cobros.shared.ApiTestBase;
 import io.quarkus.narayana.jta.QuarkusTransaction;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
@@ -22,7 +23,7 @@ import org.junit.jupiter.api.Test;
 
 /** Pruebas de integración del recurso de cobros (REST + persistencia SQLite). */
 @QuarkusTest
-class CobroResourceIT {
+class CobroResourceIT extends ApiTestBase {
 
     @Inject ClientePanacheRepository clienteRepository;
     @Inject CobroPanacheRepository cobroRepository;
