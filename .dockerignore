@@ -1,5 +1,20 @@
-*
-!build/*-runner
-!build/*-runner.jar
-!build/lib/*
-!build/quarkus-app/*
+# El build es multi-stage: la etapa "builder" compila el binario desde las
+# fuentes, por eso el contexto debe incluir el código y los archivos de Gradle.
+# Se excluye el estado local y los artefactos ya generados.
+
+# Control de versiones y estado local
+.git
+.gitignore
+.gradle
+build
+data
+.quarkus
+
+# IDE / sistema
+.idea
+.vscode
+*.iml
+.DS_Store
+
+# Documentación (no se necesita dentro de la imagen)
+*.md
