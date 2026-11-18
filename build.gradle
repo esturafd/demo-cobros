@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'io.quarkus'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+    implementation 'io.quarkus:quarkus-hibernate-orm-panache'
+    implementation 'io.quarkus:quarkus-rest-jackson'
+    implementation 'io.quarkus:quarkus-smallrye-health'
+    implementation 'io.quarkus:quarkus-hibernate-validator'
+    implementation 'io.quarkus:quarkus-smallrye-openapi'
+    implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-hibernate-orm'
+    implementation 'io.quarkus:quarkus-rest'
+
+    // SQLite: driver JDBC directo + dialecto de comunidad (versión gestionada por el BOM).
+    // No se usa la extensión Quarkiverse (desactualizada frente a Quarkus 3.40).
+    implementation 'org.xerial:sqlite-jdbc:3.54.1.0'
+    implementation 'org.hibernate.orm:hibernate-community-dialects'
+
+    testImplementation 'io.quarkus:quarkus-junit'
+    testImplementation 'io.quarkus:quarkus-junit-mockito'
+    testImplementation 'io.rest-assured:rest-assured'
+}
+
+group = 'com.demo'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
